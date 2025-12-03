@@ -92,10 +92,10 @@
             transition: all 0.3s ease;
         }
 
-            .btn:hover {
-                background: rgba(100, 255, 218, 0.1);
-                transform: translateY(-2px);
-            }
+        .btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
 
         /* Section */
         section {
@@ -109,15 +109,15 @@
             position: relative;
         }
 
-            .section-title::after {
-                content: '';
-                display: block;
-                width: 50px;
-                height: 3px;
-                background: var(--primary);
-                margin: 0.75rem auto;
-                border-radius: 3px;
-            }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            margin: 0.75rem auto;
+            border-radius: 3px;
+        }
 
         /* Services */
         .services-grid {
@@ -135,10 +135,10 @@
             transition: all 0.3s ease;
         }
 
-            .service-card:hover {
-                border-color: var(--primary);
-                transform: translateY(-5px);
-            }
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
 
         .service-icon {
             font-size: 2rem;
@@ -214,15 +214,20 @@
             transition: all 0.3s ease;
         }
 
-            .team-card:hover {
-                border-color: var(--secondary);
-                transform: translateY(-5px);
-            }
+        .team-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
 
         .team-avatar {
-            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 1rem;
             display: block;
+            background: var(--border);
+            /* fallback for empty src or broken image */
         }
 
         .team-card h3 {
@@ -245,19 +250,19 @@
             font-size: 0.9rem;
         }
 
-            .team-link:hover {
-                text-decoration: underline;
-            }
+        .team-link:hover {
+            text-decoration: underline;
+        }
 
         /* Contact */
         .contact {
             text-align: center;
         }
 
-            .contact p {
-                margin-bottom: 1.5rem;
-                font-size: 1.1rem;
-            }
+        .contact p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
 
         .telegram-btn {
             display: inline-flex;
@@ -272,9 +277,9 @@
             transition: background 0.3s;
         }
 
-            .telegram-btn:hover {
-                background: #0077b3;
-            }
+        .telegram-btn:hover {
+            background: #0077b3;
+        }
 
         .telegram-icon {
             font-size: 1.3rem;
@@ -376,7 +381,7 @@
     <!-- Advantages -->
     <section class="advantages" style="background: #14141a;">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Почем为何 выбирают нас</h2>
+            <h2 class="section-title" data-aos="fade-up">Почему выбирают нас</h2>
             <div class="advantages-grid">
                 <div class="advantage-item" data-aos="fade-up" data-aos-delay="100">
                     <span class="advantage-icon">⚡</span>
@@ -406,7 +411,7 @@
         </div>
     </section>
 
-    <!-- Team -->
+     <!-- Team -->
     <section class="team" style="background: #14141a;">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Наша команда</h2>
@@ -417,16 +422,16 @@
                     <p>Сервис и техническая поддержка онлайн-проектов</p>
                 </div>
                 <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="team-avatar">👤</div>
+                    <img class="team-avatar" src="https://static.tildacdn.com/tild3062-3134-4833-b938-326339373861/photo_2025-08-26_23-.jpg" alt="Надежда Азовскова">
                     <h3>Надежда Азовскова</h3>
                     <p>Тех.спец онлайн-школ 🚀 Запуски 🍋</p>
                     <a href="https://t.me/azovskovateh2022" target="_blank" class="team-link">Канал в Telegram</a>
                 </div>
                 <div class="team-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="team-avatar">👤</div>
-                    <h3>Ольга Гельвидес</h3>
-                    <p>Психолог</p>
-                    <a href="https://t.me/olga_gelvides_psy" target="_blank" class="team-link">Канал в Telegram</a>
+                    <img class="team-avatar" src="https://static.tildacdn.com/tild3033-3536-4530-b737-666565313562/photo_2025-12-03_19-.jpg" alt="Артём Сухинин">
+                    <h3>Артём Сухинин</h3>
+                    <p>Программист, frontend. Верстка, интерактив, Telegram Mini Apps</p>
+                    <a href="https://t.me/artem_sukhinin" target="_blank" class="team-link">Написать в Telegram</a>
                 </div>
                 <div class="team-card" data-aos="zoom-in" data-aos-delay="400">
                     <div class="team-avatar">👤</div>
@@ -440,7 +445,7 @@
                     <p>Умеет буквально всё</p>
                 </div>
                 <div class="team-card" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="team-avatar">👤</div>
+                    <img class="team-avatar" src="https://static.tildacdn.com/tild3962-3937-4239-b863-396463333030/2025-12-03_19-24-46.png" alt="Елена Григорьева">
                     <h3>Елена Григорьева</h3>
                     <p>Мастер по ботам любой сложности</p>
                 </div>
