@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Technician-Ninjas — Разработка Telegram Mini Apps</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0f0f13;
+      --text: #e6e6ff;
+      --primary: #64ffda;
+      --secondary: #8a8aff;
+      --card-bg: #1a1a22;
+      --border: #2d2d3d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding: 0;
+      margin: 0;
+    }
+
+    h1, h2, h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 1.5rem 0 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      opacity: 0.85;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(100, 255, 218, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Section */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      margin: 0.75rem auto;
+      border-radius: 3px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    /* Process */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      min-width: 36px;
+      height: 36px;
+      background: var(--secondary);
+      color: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Advantages */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .advantage-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .advantage-icon {
+      color: var(--primary);
+      margin-top: 0.25rem;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0088cc;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .telegram-btn:hover {
+      background: #0077b3;
+    }
+
+    .telegram-icon {
+      font-size: 1.3rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+      }
+
+      .step {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .step-number {
+        align-self: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero" data-aos="fade-up">
+    <div class="logo">Technician-Ninjas</div>
+    <h1>Разработка Telegram Mini Apps & API-интеграции</h1>
+    <p>Мы создаём мощные боты, веб-приложения и интегрируем любые API — быстро, надёжно и в срок.</p>
+    <a href="https://t.me/your_bot_username" class="btn" target="_blank">Написать в Telegram</a>
+  </div>
+
+  <!-- Services -->
+  <section class="services" style="background: #14141a;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Наши услуги</h2>
+      <div class="services-grid">
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="service-icon">🤖</div>
+          <h3>Telegram Bots</h3>
+          <p>Сложные и простые боты с клавиатурами, платежами, админками и webhook’ами.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-icon">📱</div>
+          <h3>Mini Apps</h3>
+          <p>Полноценные веб-приложения внутри Telegram: игры, CRM, аналитика, e-commerce.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-icon">🔌</div>
+          <h3>API Интеграции</h3>
+          <p>Подключаем ваши сервисы к Telegram, CRM, 1С, платёжным системам и другим API.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="service-icon">🚀</div>
+          <h3>Проекты под ключ</h3>
+          <p>От идеи до запуска: архитектура, разработка, тестирование и поддержка.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Как мы работаем</h2>
+      <div class="steps">
+        <div class="step" data-aos="fade-right">
+          <div class="step-number">1</div>
+          <div>Обсуждаем задачу, сроки и бюджет. Даём чёткую оценку.</div>
+        </div>
+        <div class="step" data-aos="fade-right" data-aos-delay="100">
+          <div class="step-number">2</div>
+          <div>Разрабатываем прототип и архитектуру решения.</div>
+        </div>
+        <div class="step" data-aos="fade-right" data-aos-delay="200">
+          <div class="step-number">3</div>
+          <div>Пишем код, тестируем, интегрируем и запускаем.</div>
+        </div>
+        <div class="step" data-aos="fade-right" data-aos-delay="300">
+          <div class="step-number">4</div>
+          <div>Предоставляем документацию и поддержку после релиза.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages -->
+  <section class="advantages" style="background: #14141a;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Почему выбирают нас</h2>
+      <div class="advantages-grid">
+        <div class="advantage-item" data-aos="fade-up" data-aos-delay="100">
+          <span class="advantage-icon">⚡</span>
+          <div>Быстрая разработка</div>
+        </div>
+        <div class="advantage-item" data-aos="fade-up" data-aos-delay="200">
+          <span class="advantage-icon">🔒</span>
+          <div>Безопасность и стабильность</div>
+        </div>
+        <div class="advantage-item" data-aos="fade-up" data-aos-delay="300">
+          <span class="advantage-icon">🧠</span>
+          <div>Опытные разработчики</div>
+        </div>
+        <div class="advantage-item" data-aos="fade-up" data-aos-delay="400">
+          <span class="advantage-icon">🤝</span>
+          <div>Гибкость и прозрачность</div>
+        </div>
+        <div class="advantage-item" data-aos="fade-up" data-aos-delay="500">
+          <span class="advantage-icon">🔄</span>
+          <div>Поддержка после релиза</div>
+        </div>
+        <div class="advantage-item" data-aos="fade-up" data-aos-delay="600">
+          <span class="advantage-icon">💡</span>
+          <div>Креативные технические решения</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Готовы начать?</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Напишите нам — и уже через час вы получите ответ с решением вашей задачи.</p>
+      <a href="https://t.me/technicianninjas_bot" class="telegram-btn" target="_blank" data-aos="fade-up" data-aos-delay="200">
+        <span class="telegram-icon">💬</span> Написать в Telegram
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Technician-Ninjas. Все права защищены.
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+</html>
